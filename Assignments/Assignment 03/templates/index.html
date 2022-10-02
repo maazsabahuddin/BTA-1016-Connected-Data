@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Robot Battle!</title>
+
+  </head>
+
+  <body>
+    <center>
+
+    <h1>Robot Battle!</h1>
+    <br>
+    <table>
+        <tr>
+            <th>Hi, I'm Bob</th>
+            <th>Hi, I'm Joe</th>
+            <th>Hi, I'm Moe</th>
+            <th>Hi, I'm Sue</th>
+        </tr>
+        <tr>
+            <td>
+                <img src="{{players['bob']}}" height="200" width="200">
+            </td>
+            <td>
+                <img src="{{players['joe']}}" height="200" width="200">
+            </td>
+            <td>
+                <img src="{{players['moe']}}" height="200" width="200">
+            </td>
+            <td>
+                <img src="{{players['sue']}}" height="200" width="200">
+            </td>
+        </tr>
+    </table>
+
+    {% if show_results %}
+        <h1>Match Results</h1>
+        <h2> Match 1: Bob Vs Joe</h2><h4> {{ bob_joe_match }} ({{players_score['bob']}}-{{players_score['joe']}}) & </h4>
+        <h2> Match 2: Moe Vs Sue</h2><h4> {{ moe_sue_match }} ({{players_score['moe']}}-{{players_score['sue']}}) </h4>
+        <h2> Match 3: {{final_teams['team_a']}} Vs {{final_teams['team_b']}}</h2><h4> {{ final_match }} ({{final_teams_score['team_a']}}-{{final_teams_score['team_b']}}) </h4>
+
+        <form action="/graph" method="get" autocomplete="off" class="subscribe-form">
+         <div class="form-group d-flex">
+             <input type="hidden" name="name1" id="name1" value="Bob">
+             <input type="hidden" name="name2" id="name2" value="Joe">
+             <input type="hidden" name="name3" id="name3" value="Moe">
+             <input type="hidden" name="name4" id="name4" value="Sue">
+             <input type="hidden" name="number1" id="number1" value={{players_score['bob']}}>
+             <input type="hidden" name="number2" id="number2" value={{players_score['joe']}}>
+             <input type="hidden" name="number3" id="number3" value={{players_score['moe']}}>
+             <input type="hidden" name="number4" id="number4" value={{players_score['sue']}}>
+             <input type="submit" value="Check Stats">
+         </div>
+        </form>
+
+    {% else %}
+    {% endif %}
+        <br>
+        <form action="/match" method="get" autocomplete="off" class="subscribe-form">
+            <input type="submit" value="Play Group Matches!">
+        </form>
+    </center>
+
+  </body>
+
+</html>
