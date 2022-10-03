@@ -57,8 +57,8 @@ def match():
     return render_template("index.html",
                            players=players,
                            players_score=players_score,
-                           bob_joe_match=first_match,
-                           moe_sue_match=second_match,
+                           first_match=first_match,
+                           second_match=second_match,
                            final_teams=final_teams,
                            final_match=final_match,
                            final_teams_score=final_teams_score,
@@ -73,25 +73,26 @@ def index_page():
     """
     return render_template("index.html",
                            players=players,
-                           players_score={"bob": 0, "joe": 0,
-                                          "moe": 0, "sue": 0},
-                           bob_joe_match="",
-                           moe_sue_match="",
+                           players_score={"bob": 0, "joe": 0, "moe": 0, "sue": 0},
+                           first_match="",
+                           second_match="",
                            show_results=False)
 
 
 @app.route('/stats', methods=['GET'])
-def visualize():
+def graph_visualize():
     """
-    This end-point will construct a graph
+    This end-point will construct a graph using Dataframe.
     :return:
     """
+    arguments = ["names", "numbers"]
+
     # Fetch values from query params.
-    score = {"names": [request.args.get(f"name{i}") for i in range(1, 5)],
-             "numbers": [int(request.args.get(f"number{i}")) for i in range(1, 5)]}
+    score = {arguments[0]: [request.args.get(f"name{i}") for i in range(1, 5)],
+             arguments[1]: [int(request.args.get(f"number{i}")) for i in range(1, 5)]}
 
     df = pd.DataFrame(score)
-    fig = px.bar(df, x='names', y='numbers')
+    fig = px.bar(df, x=arguments[0], y=arguments[1])
     graphJSON = json.dumps(fig, cls=plotly.utils.PlotlyJSONEncoder)
     return render_template('graph.html', graphJSON=graphJSON)
 

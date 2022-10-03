@@ -37,8 +37,8 @@
 
     {% if show_results %}
         <h1>Match Results</h1>
-        <h2> Match 1: Bob Vs Joe</h2><h4> {{ bob_joe_match }} ({{players_score['bob']}}-{{players_score['joe']}}) & </h4>
-        <h2> Match 2: Moe Vs Sue</h2><h4> {{ moe_sue_match }} ({{players_score['moe']}}-{{players_score['sue']}}) </h4>
+        <h2> Match 1: Bob Vs Joe</h2><h4> {{ first_match }} ({{players_score['bob']}}-{{players_score['joe']}}) & </h4>
+        <h2> Match 2: Moe Vs Sue</h2><h4> {{ second_match }} ({{players_score['moe']}}-{{players_score['sue']}}) </h4>
         <h2> Match 3: {{final_teams['team_a']}} Vs {{final_teams['team_b']}}</h2><h4> {{ final_match }} ({{final_teams_score['team_a']}}-{{final_teams_score['team_b']}}) </h4>
 
         <form action="/stats" method="get" autocomplete="off" class="subscribe-form">
