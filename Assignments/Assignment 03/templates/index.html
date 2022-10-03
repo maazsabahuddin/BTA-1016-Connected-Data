@@ -41,7 +41,7 @@
         <h2> Match 2: Moe Vs Sue</h2><h4> {{ moe_sue_match }} ({{players_score['moe']}}-{{players_score['sue']}}) </h4>
         <h2> Match 3: {{final_teams['team_a']}} Vs {{final_teams['team_b']}}</h2><h4> {{ final_match }} ({{final_teams_score['team_a']}}-{{final_teams_score['team_b']}}) </h4>
 
-        <form action="/graph" method="get" autocomplete="off" class="subscribe-form">
+        <form action="/stats" method="get" autocomplete="off" class="subscribe-form">
          <div class="form-group d-flex">
              <input type="hidden" name="name1" id="name1" value="Bob">
              <input type="hidden" name="name2" id="name2" value="Joe">

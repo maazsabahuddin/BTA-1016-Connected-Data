@@ -14,11 +14,16 @@ players = {"bob": "https://robohash.org/bob.png", "joe": "https://robohash.org/j
 
 
 @app.route("/match")
-def match1():
+def match():
+    """
+    This end-point is going to show the result of the match.
+    :return:
+    """
     players_score = {"bob": random.randint(1, 100), "joe": random.randint(1, 100),
                      "moe": random.randint(1, 100), "sue": random.randint(1, 100)}
     final_teams = {"team_a": "", "team_b": ""}
 
+    # Match One
     if players_score["bob"] > players_score["joe"]:
         first_match = "Bob Won the game!"
         final_teams.update({"team_a": "Bob"})
@@ -29,6 +34,7 @@ def match1():
         first_match = "Joe Won the game!"
         final_teams.update({"team_a": "Joe"})
 
+    # Match Two
     if players_score["moe"] > players_score["sue"]:
         second_match = "Moe Won the game!"
         final_teams.update({"team_b": "Moe"})
@@ -39,6 +45,7 @@ def match1():
         second_match = "Sue Won the game!"
         final_teams.update({"team_b": "Sue"})
 
+    # Final Match
     final_teams_score = {"team_a": random.randint(1, 100), "team_b": random.randint(1, 100)}
     if final_teams_score['team_a'] > final_teams_score['team_b']:
         final_match = f"{final_teams['team_a']} Won the game!"
@@ -73,14 +80,16 @@ def index_page():
                            show_results=False)
 
 
-@app.route('/graph', methods=['GET'])
+@app.route('/stats', methods=['GET'])
 def visualize():
     """
     This end-point will construct a graph
     :return:
     """
+    # Fetch values from query params.
     score = {"names": [request.args.get(f"name{i}") for i in range(1, 5)],
              "numbers": [int(request.args.get(f"number{i}")) for i in range(1, 5)]}
+
     df = pd.DataFrame(score)
     fig = px.bar(df, x='names', y='numbers')
     graphJSON = json.dumps(fig, cls=plotly.utils.PlotlyJSONEncoder)
