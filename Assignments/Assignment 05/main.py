@@ -37,7 +37,7 @@ def create_workbook_object():
     :return:
     """
     wb = openpyxl.Workbook()
-    return wb.active
+    return wb.active, wb
 
 
 def filling_data(ws):
@@ -73,13 +73,13 @@ def create_chart_within_workbook(ws):
     ws.add_chart(chart, "D1")
 
 
-def save_workbook_data(ws):
+def save_workbook_data(wb):
     """
     This function will save the file into the same directory as the main file.
-    :param ws:
+    :param wb:
     :return:
     """
-    ws.save(f"{EXCEL_FILE_NAME}")
+    wb.save(f"{EXCEL_FILE_NAME}")
 
 
 def _run():
@@ -87,8 +87,10 @@ def _run():
     This is an abstract layer which will handle the execution process
     :return:
     """
-    workbook_object = create_workbook_object()
-    filling_data(workbook_object)
+    worksheet_object, workbook_object = create_workbook_object()
+    filling_data(worksheet_object)
+    create_chart_within_workbook(worksheet_object)
+    save_workbook_data(workbook_object)
 
 
 if __name__ == '__main__':
