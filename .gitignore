@@ -155,6 +155,8 @@ cython_debug/
 .idea
 venv
 
+# Assignments/Assignment 05/samplebook.xlsx
+
 # PyCharm
 #  JetBrains specific template is maintained in a separate JetBrains.gitignore that can
 #  be found at https://github.com/github/gitignore/blob/main/Global/JetBrains.gitignore
