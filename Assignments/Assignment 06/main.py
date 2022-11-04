@@ -1,5 +1,4 @@
 # Python imports
-import requests
 import json
 
 # Package imports
