@@ -43,10 +43,10 @@ def base():
     nasdaq_gbp = nasdaqdatalink.get(f'ECONOMIST/BIGMAC_{"EUR"}', start_date="2020-12-01", end_date="2022-11-19")
 
     return render_template("index.html",
-                           pkr=f"{flag.flag('GBUS')} 1 USD = {pkr_value['pkr']} PKR {flag.flag('GBPK')}",
-                           usd=f"{flag.flag('GBUS')} 1 USD = {usd_value['usd']} USD {flag.flag('GBUS')}",
-                           cad=f"{flag.flag('GBUS')} 1 USD = {cad_value['cad']} CAD {flag.flag('GBCAD')}",
-                           gbp=f"{flag.flag('GBUS')} 1 USD = {gbp_value['gbp']} GBP {flag.flag('GBP')}",
+                           pkr=f"1 USD = {pkr_value['pkr']} PKR",
+                           usd=f"1 USD = {usd_value['usd']} USD",
+                           cad=f"1 USD = {cad_value['cad']} CAD",
+                           gbp=f"1 USD = {gbp_value['gbp']} GBP",
                            nasdaq_pak=[nasdaq_pak.to_html(classes='data')],
                            nasdaq_usa=[nasdaq_usa.to_html(classes='data')],
                            nasdaq_can=[nasdaq_can.to_html(classes='data')],
