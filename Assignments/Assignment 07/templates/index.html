@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Big Mac Index!</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+  </head>
+
+  <body>
+    <div class="container">
+      <center><h1>BIG MAC INDEX</h1></center>
+      <div class="container">
+        <br>
+        <h3>PAKISTAN VS UNITED STATES</h3>
+        <img
+          src="https://flagcdn.com/16x12/us.png"
+          srcset="https://flagcdn.com/32x24/us.png 2x,
+            https://flagcdn.com/48x36/us.png 3x"
+          width="32"
+          height="24"
+          alt="United States of America">
+        {{pkr}}
+        <img
+          src="https://flagcdn.com/16x12/pk.png"
+          srcset="https://flagcdn.com/32x24/pk.png 2x,
+            https://flagcdn.com/48x36/pk.png 3x"
+          width="32"
+          height="24"
+          alt="Pakistan">
+        <br>
+        <img src="https://i.pinimg.com/originals/f8/82/dd/f882dd30495f5aaf805e37ed70b9c751.jpg" width="400" height="280" alt="Pakistan Infographic">
+        <p><a href={{domain}}/line-graph?currency=pkr> Line Graph Visualization </a></p>
+          {% for table in nasdaq_pak %}
+              {{ table|safe }}
+          {% endfor %}
+        <br>
+        <p> The economy of Pakistan is a low income developing economy. It is the 23rd-largest worldwide in terms of GDP based on purchasing
+          power parity (PPP). According to a 2021 estimate, the Country has a population of 227 million people (5th-largest worldwide). </p>
+        <p> According to 2012, you can buy 17 {{nasdaq_pak_burger}} burgers.</p>
+      </div>
+
+      <div class="container">
+        <br><br>
+        <h3>CANADA VS UNITED STATES</h3>
+        <img
+          src="https://flagcdn.com/16x12/us.png"
+          srcset="https://flagcdn.com/32x24/us.png 2x,
+            https://flagcdn.com/48x36/us.png 3x"
+          width="32"
+          height="24"
+          alt="United States of America">
+        {{cad}}
+        <img
+          src="https://flagcdn.com/16x12/ca.png"
+          srcset="https://flagcdn.com/32x24/ca.png 2x,
+            https://flagcdn.com/48x36/ca.png 3x"
+          width="32"
+          height="24"
+          alt="Canada">
+        <p><a href={{domain}}/line-graph?currency=pkr> Line Graph Visualization </a></p>
+          {% for table in nasdaq_can %}
+              {{ table|safe }}
+          {% endfor %}
+        <br>
+        <p>Canadian economic activity remains strong, and employment is robust. The Bank is forecasting growth of about 4¼% in 2022, easing to 3¼% in 2023.</p>
+        <p> According to 2012, you can buy 10 {{nasdaq_can_burger}} burgers.</p>
+      </div>
+
+      <div class="container">
+        <br><br>
+        <h3>ENGLAND VS UNITED STATES</h3>
+        <img
+          src="https://flagcdn.com/16x12/us.png"
+          srcset="https://flagcdn.com/32x24/us.png 2x,
+            https://flagcdn.com/48x36/us.png 3x"
+          width="32"
+          height="24"
+          alt="United States of America">
+        {{gbp}}
+        <img
+          src="https://flagcdn.com/16x12/gb-eng.png"
+          srcset="https://flagcdn.com/32x24/gb-eng.png 2x,
+            https://flagcdn.com/48x36/gb-eng.png 3x"
+          width="32"
+          height="24"
+          alt="England">
+        <p><a href={{domain}}/line-graph?currency=pkr> Line Graph Visualization </a></p>
+          {% for table in nasdaq_gbp %}
+              {{ table|safe }}
+          {% endfor %}
+        <br>
+        <p>The Consumer Prices Index including owner occupiers' housing costs (CPIH) rose by 9.6% in the year to October 2022, up from 8.8% in the year
+          to September 2022. This is the highest the annual inflation rate has been since December 1980 when it stood at 9.8% in constructed historical
+          estimates.</p>
+        <p> According to 2012, you can buy 9 {{nasdaq_gbp_burger}} burgers.</p>
+      </div>
+
+
+      <div class="container">
+        <br><br>
+        <h3>UNITED STATES OF AMERICA VS UNITED STATES OF AMERICA</h3>
+        <img
+          src="https://flagcdn.com/16x12/us.png"
+          srcset="https://flagcdn.com/32x24/us.png 2x,
+            https://flagcdn.com/48x36/us.png 3x"
+          width="32"
+          height="24"
+          alt="United States of America">
+        {{usd}}
+        <img
+          src="https://flagcdn.com/16x12/us.png"
+          srcset="https://flagcdn.com/32x24/us.png 2x,
+            https://flagcdn.com/48x36/us.png 3x"
+          width="32"
+          height="24"
+          alt="United States of America">
+        <p><a href={{domain}}/line-graph?currency=usd> Line Graph Visualization </a></p>
+          {% for table in nasdaq_usa %}
+              {{ table|safe }}
+          {% endfor %}
+        <br>
+        <p>The U.S. economy, though clearly facing a growing risk of recession, continues to exhibit remarkable strengths, particularly in the labor
+          market, as illustrated by continued job creation and another drop in the unemployment rate in the September 2022 jobs report.</p>
+      </div>
+
+    </div>
+
+  </body>
+
+</html>
